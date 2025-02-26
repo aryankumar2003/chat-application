@@ -6,7 +6,7 @@ import chat from '../models/chatModel'
 
 
 
-const SECRET_KEY = process.env.JWT || "jwt-key";
+const SECRET_KEY = process.env.JWT as string;
 
 
 export const initSockerServer = async (server: any) => {
