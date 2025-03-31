@@ -13,14 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initSockerServer = void 0;
-const http_1 = __importDefault(require("http"));
 const socket_io_1 = require("socket.io");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const express_1 = __importDefault(require("express"));
 const chatModel_1 = __importDefault(require("../models/chatModel"));
-const app = (0, express_1.default)();
-const SECRET_KEY = process.env.JWT || "jwt-key";
-const server = http_1.default.createServer(app);
+const SECRET_KEY = process.env.JWT;
 const initSockerServer = (server) => __awaiter(void 0, void 0, void 0, function* () {
     const io = new socket_io_1.Server(server);
     io.use((socket, next) => {

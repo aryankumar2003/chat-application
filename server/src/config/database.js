@@ -17,11 +17,12 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect("mongodb+srv://26csdayan:oLTsMAkF0rzTv7Qq@cluster0.2ewg7.mongodb.net/");
+        console.log("MongoURI:", process.env.MONGO_URI);
+        yield mongoose_1.default.connect(process.env.MONGO_URI);
         console.log("✅ MongoDB Connected");
     }
     catch (error) {
-        console.error("❌ MongoDB Connection Error:", error);
+        console.error("❌ MongoDB Connection Error:", error, "MongoURI:", process.env.MONGO_URI);
         process.exit(1);
     }
 });

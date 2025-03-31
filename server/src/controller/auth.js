@@ -71,7 +71,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             res.status(401).json({ error: "Invalid credentials" });
             return;
         }
-        const token = jsonwebtoken_1.default.sign({ userId: user._id }, process.env.JWT_SECRET || "secretKey", { expiresIn: "1h" });
+        const token = jsonwebtoken_1.default.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({ message: "Login Successfully", token });
     }
     catch (error) {
